@@ -18,8 +18,9 @@ export default createConfigForNuxt({
 	.append(
 		...vueConfig,
 		{
+			ignores: [".nuxt/"],
+			// for auto imports
 			rules: {
-				// for auto imports
 				"no-undef": "off",
 			}
 		}
