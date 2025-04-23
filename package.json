@@ -5,7 +5,6 @@
 	"type": "module",
 	"sideEffects": false,
 	"main": "./dist/module.cjs",
-	"types": "./dist/types.d.ts",
 	"//exports": {
 		"./utils/ensureEnv.js": "Temporary for drizzle. See nuxt-postgres/src/drizzleConfig.ts for more details."
 	},
@@ -34,9 +33,9 @@
 		"build": "nuxt-module-build prepare && nuxt-module-build build",
 		"dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare",
 		"lint": "eslint \"{src,test}/**/*.{ts,vue}\" \"*.{js,cjs,mjs,ts}\"",
+		"lint:types": "vue-tsc --noEmit",
 		"test": "vitest run",
-		"test:watch": "vitest watch",
-		"test:types": "vue-tsc --noEmit"
+		"test:watch": "vitest watch"
 	},
 	"dependencies": {
 		"@alanscodelog/utils": "^5.0.0",
