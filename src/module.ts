@@ -52,31 +52,35 @@ export default defineNuxtModule<ModuleOptions>({
 			: options.includeBaseConfig
 
 		if (include.includes("base")) {
-			nuxt.options = defu(
-				nuxt.options,
+			nuxt.options.ignore ??= defu(ignoreDirs, nuxt.options.ignore)
+			nuxt.options.nitro ??= defu(
 				{
-					ignore: ignoreDirs,
-					future: {
-						compatibilityVersion: 4 as const
-					} as any,
-					nitro: {
-						experimental: {
-							websocket: true,
+					experimental: {
+						websocket: true,
+					},
+				},
+				(nuxt.options.nitro as any) ?? {}
+			)
+			nuxt.options.devtools ??= defu(
+				{
+					enabled: true,
+				},
+				(nuxt.options.devtools as any) ?? {}
+			)
+			nuxt.options.typescript ??= defu(
+				{
+					tsConfig: {
+						compilerOptions: {
+							lib: ["es2021", "dom"],
+							importsNotUsedAsValues: "remove",
+						},
+						vueCompilerOptions: {
+							strictTemplates: true,
 						},
 					},
-					devtools: { enabled: true },
-					typescript: {
-						tsConfig: {
-							compilerOptions: {
-								lib: ["es2021", "dom"],
-								importsNotUsedAsValues: "remove",
-							},
-							vueCompilerOptions: {
-								strictTemplates: true,
-							},
-						},
-					},
-				} satisfies NuxtConfig as any)
+				},
+				((nuxt.options.typescript as any) ?? {})
+			) as any
 		}
 
 
