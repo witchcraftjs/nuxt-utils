@@ -5,25 +5,17 @@
 	"type": "module",
 	"sideEffects": false,
 	"//exports": {
-		"./utils/ensureEnv.js": "Temporary for drizzle. See nuxt-postgres/src/drizzleConfig.ts for more details."
+		"require": "Temporary for drizzle. See nuxt-postgres/src/drizzleConfig.ts for more details."
 	},
 	"exports": {
 		".": {
 			"types": "./dist/types.d.mts",
 			"import": "./dist/module.mjs"
 		},
-		"./utils": {
-			"types": "./dist/runtime/utils/index.d.ts",
-			"import": "./dist/runtime/utils/index.js"
-		},
-		"./utils/*": {
-			"types": "./dist/runtime/utils/*.d.ts",
-			"import": "./dist/runtime/utils/*"
-		},
-		"./utils/ensureEnv.js": {
-			"types": "./dist/ensureEnv.d.mts",
-			"import": "./dist/ensureEnv.mjs",
-			"require": "./src/ensureEnv.ts"
+		"./*": {
+			"types": "./dist/runtime/*.d.ts",
+			"import": "./dist/runtime/*",
+			"require": "./dist/runtime/*"
 		}
 	},
 	"scripts": {
