@@ -66,15 +66,7 @@ const props = defineProps<{ error: NuxtError }>()
 // nuxt layout not working?
 const tab = "\t"
 
-let data: any
-if (props.error.data) {
-	try {
-		data = JSON.parse(props.error.data as any)
-	}
-	catch {
-		data = props.error.data
-	}
-}
+const data: any = props.error.data
 
 const redirect = data && "redirect" in data && typeof data.redirect === "string" && data.redirect
 
