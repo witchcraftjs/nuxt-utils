@@ -29,7 +29,7 @@
 		"test:watch": "vitest watch"
 	},
 	"dependencies": {
-		"@alanscodelog/utils": "^5.1.0",
+		"@alanscodelog/utils": "^6.0.1",
 		"@nuxt/kit": "^4.0.1",
 		"change-case": "^5.4.4",
 		"defu": "^6.1.4",

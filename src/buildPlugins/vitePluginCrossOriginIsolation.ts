@@ -1,4 +1,4 @@
-import { keys } from "@alanscodelog/utils/keys.js"
+import { keys } from "@alanscodelog/utils/keys"
 import { type Plugin } from "vite"
 
 
