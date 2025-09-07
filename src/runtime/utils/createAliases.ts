@@ -19,7 +19,7 @@ export function createAliases(
 	/* Record<"#alias-name", "path/relative/to/path"> */
 	aliases: Record<string, string>,
 	/* import.meta.url */
-	importMetaUrl: URL
+	importMetaUrl: string
 ) {
 	const aliasesRes = Object.fromEntries(
 		Object.entries(aliases).map(([alias, path]) => [
