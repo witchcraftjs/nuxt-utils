@@ -1,6 +1,5 @@
 import { keys } from "@alanscodelog/utils/keys"
-import { networkInterfaces } from "os"
-
+import { networkInterfaces } from "node:os"
 
 export function getIps() {
 	const nets = networkInterfaces()

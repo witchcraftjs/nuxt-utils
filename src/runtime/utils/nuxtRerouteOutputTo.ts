@@ -1,5 +1,5 @@
-import {  type Nuxt } from "nuxt/schema"
-import path from "path"
+import path from "node:path"
+import type { Nuxt } from "nuxt/schema"
 
 /** Changes the build output dir so the build doesn't interfere with other builds. */
 export function nuxtRerouteOutputTo(nuxt: Nuxt, dir: string): void {
@@ -10,4 +10,3 @@ export function nuxtRerouteOutputTo(nuxt: Nuxt, dir: string): void {
 		config.output.publicDir = path.join(dir, "public")
 	})
 }
-

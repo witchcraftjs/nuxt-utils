@@ -1,8 +1,8 @@
 <template>
 <!-- This is client only because the redirect button won't work until hydration otherwise -->
 <ClientOnly>
-	<!-- @vue-expect-error main layout has special isErrorPage prop -->
-	<div class="
+	<div
+		class="
 		flex
 		flex-1
 		flex-col
@@ -18,7 +18,10 @@
 		<div class="text-xl text-center">
 			{{ error.message }}
 		</div>
-		<div v-if="redirect" class="text-xl flex justify-center items-center gap-4">
+		<div
+			v-if="redirect"
+			class="text-xl flex justify-center items-center gap-4"
+		>
 			<div class="">
 				<span :class="redirecting && `animate-pulse`">
 					{{ redirecting ? "Redirecting to " : "Go to " }}
@@ -48,7 +51,7 @@ JSON.stringify({ ...error, data, stack: undefined }, null, tab)
 				Stack:
 				<div class="flex [&_pre]:whitespace-pre-wrap whitespace-pre-wrap break-all">
 					<pre>{{ tab }}</pre>
-					<pre v-html="error.stack"/>
+					<pre>{{ error.stack?.split("\n").join("\n" + tab) }}</pre>
 				</div>
 			</div>
 		</div>
@@ -57,9 +60,8 @@ JSON.stringify({ ...error, data, stack: undefined }, null, tab)
 </template>
 
 <script setup lang="ts">
-
 import type { NuxtError } from "#app"
-import { clearError, navigateTo } from "#imports"
+import { clearError, onMounted, ref } from "#imports"
 
 const props = defineProps<{ error: NuxtError }>()
 

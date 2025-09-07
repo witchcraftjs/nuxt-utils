@@ -1,6 +1,5 @@
 import { keys } from "@alanscodelog/utils/keys"
-import { type Plugin } from "vite"
-
+import type { Plugin } from "vite"
 
 export function vitePluginCrossOriginIsolation(headers: Record<string, string>): Plugin {
 	return {
@@ -9,10 +8,11 @@ export function vitePluginCrossOriginIsolation(headers: Record<string, string>):
 		configureServer: server => {
 			server.middlewares.use((_req, res, next) => {
 				for (const key of keys(headers)) {
+					if (headers[key] === undefined) continue
 					res.setHeader(key, headers[key])
 				}
 				next()
 			})
-		},
+		}
 	}
 }

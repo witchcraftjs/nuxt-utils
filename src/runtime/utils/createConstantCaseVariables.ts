@@ -1,10 +1,9 @@
 import { constantCase } from "change-case"
 
-
 export const createConstantCaseVariables = (
 	vars: Record<string, any>,
 	prefix: string = "process.env.",
-	{autoquote = true}: { autoquote?: boolean } = {},
+	{ autoquote = true }: { autoquote?: boolean } = {}
 ): Record<string, any> =>
 	Object.fromEntries(
 		Object.keys(vars)
@@ -17,4 +16,3 @@ export const createConstantCaseVariables = (
 			}
 			)
 	)
-

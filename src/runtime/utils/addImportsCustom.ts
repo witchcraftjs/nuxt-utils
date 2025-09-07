@@ -1,6 +1,4 @@
 import { addImports } from "@nuxt/kit"
-import fastGlob from "fast-glob"
-import path from "path"
 
 import { globFiles } from "./globFiles.js"
 
@@ -25,10 +23,10 @@ export function addImportsCustom<T = { name: string, filepath: string }>(
 	cb = (imp: string, name: string): T => {
 		addImports({
 			name,
-			from: imp,
+			from: imp
 		})
 		return { name, filepath: imp } as T
-	},
+	}
 ): T[] {
 	return globFiles(globs, ignore, cb)
 }
