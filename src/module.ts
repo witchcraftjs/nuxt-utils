@@ -69,9 +69,6 @@ export default defineNuxtModule<ModuleOptions>({
 						compilerOptions: {
 							lib: ["es2021", "dom"],
 							importsNotUsedAsValues: "remove"
-						},
-						vueCompilerOptions: {
-							strictTemplates: true
 						}
 					}
 				},

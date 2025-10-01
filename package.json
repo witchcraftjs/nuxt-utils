@@ -44,7 +44,7 @@
 	"devDependencies": {
 		"@alanscodelog/eslint-config": "^6.3.0",
 		"@alanscodelog/semantic-release-config": "^5.0.4",
-		"@alanscodelog/tsconfigs": "^6.1.0",
+		"@alanscodelog/tsconfigs": "^6.2.0",
 		"@commitlint/cli": "^19.8.1",
 		"@nuxt/eslint-config": "^1.9.0",
 		"@nuxt/module-builder": "^1.0.2",
