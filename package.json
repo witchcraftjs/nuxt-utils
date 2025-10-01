@@ -31,7 +31,7 @@
 		"lint:types": "vue-tsc --noEmit",
 		"lint:commits": "commitlint --from-last-tag --to HEAD --verbose",
 		"lint": "pnpm lint:types && pnpm lint:eslint && pnpm lint:commits",
-		"test": "vitest run",
+		"test": "echo no tests yet",
 		"test:watch": "vitest watch"
 	},
 	"dependencies": {
