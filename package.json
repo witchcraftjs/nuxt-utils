@@ -23,7 +23,7 @@
 		}
 	},
 	"scripts": {
-		"prepare": "husky && pnpm dev:prepare",
+		"prepare": "husky && pnpm build",
 		"build": "nuxt-module-build prepare && nuxt-module-build build",
 		"build:only": "nuxt-module-build build",
 		"dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare",
