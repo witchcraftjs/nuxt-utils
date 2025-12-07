@@ -4,6 +4,7 @@
 	"description": "Nuxt/build utils.",
 	"type": "module",
 	"sideEffects": false,
+	"packageManager": "pnpm@11.5.0",
 	"//exports": {
 		"require": "Temporary for drizzle. See nuxt-postgres/src/drizzleConfig.ts for more details."
 	},
