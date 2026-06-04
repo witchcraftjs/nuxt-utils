@@ -41,8 +41,7 @@
 		"change-case": "catalog:",
 		"defu": "catalog:",
 		"fast-glob": "catalog:",
-		"tailwind-merge": "catalog:",
-		"vue": "catalog:"
+		"tailwind-merge": "catalog:"
 	},
 	"devDependencies": {
 		"@alanscodelog/eslint-config": "catalog:",
@@ -60,6 +59,7 @@
 		"nuxt": "catalog:",
 		"typescript": "catalog:",
 		"vitest": "catalog:",
+		"vue": "catalog:",
 		"vue-tsc": "catalog:"
 	},
 	"author": "Alan <alanscodelog@gmail.com>",

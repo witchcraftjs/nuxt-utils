@@ -98,9 +98,6 @@ importers:
       tailwind-merge:
         specifier: 'catalog:'
         version: 3.6.0
-      vue:
-        specifier: 'catalog:'
-        version: 3.5.34(typescript@6.0.3)
     devDependencies:
       '@alanscodelog/eslint-config':
         specifier: 'catalog:'
@@ -147,6 +144,9 @@ importers:
       vitest:
         specifier: 'catalog:'
         version: 3.2.4(@types/node@25.9.1)(jiti@2.6.1)(terser@5.44.0)(yaml@2.8.1)
+      vue:
+        specifier: 'catalog:'
+        version: 3.5.34(typescript@6.0.3)
       vue-tsc:
         specifier: 'catalog:'
         version: 3.3.1(typescript@6.0.3)
