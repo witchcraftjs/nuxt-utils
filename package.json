@@ -40,7 +40,9 @@
 		"@nuxt/kit": "catalog:",
 		"change-case": "catalog:",
 		"defu": "catalog:",
-		"fast-glob": "catalog:"
+		"fast-glob": "catalog:",
+		"tailwind-merge": "catalog:",
+		"vue": "catalog:"
 	},
 	"devDependencies": {
 		"@alanscodelog/eslint-config": "catalog:",

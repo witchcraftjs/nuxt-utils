@@ -29,8 +29,10 @@ catalog:
   fast-glob: ^3.3.3
   husky: ^9.1.7
   nuxt: ^4.2.1
+  tailwind-merge: ^3.6.0
   typescript: ^6.0.3
   vitest: ^3.2.4
+  vue: ^3.5.34
   vue-tsc: ^3.3.1
 
 patchedDependencies:

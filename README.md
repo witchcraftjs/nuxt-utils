@@ -51,6 +51,22 @@ Note that if wrapping in a layout, it needs to use a slot, not a nuxt page or it
 </template>
 ```
 
+### NuxtUtilsDevOnly
+
+A better `<DevOnly>` component that hides it's slot by default until you press `F1` to show it.
+
+You can also force show it per component by passing the `show` prop.
+
+```vue
+<template>
+<NuxtUtilsDevOnly>
+	<div>This will only show when you press F1 and will not be included in the bundle.</div>
+</NuxtUtilsDevOnly>
+</template>
+```
+The handler is configurable via the exported `devOnlyHandlerInjectionKey` injection key. Note that it is only attached once to the window and never removed. You can't have different handlers in different components. Global data is saved to window with the same injection key.
+
+
 <!-- Badges -->
 [release-src]: https://github.com/witchcraftjs/nuxt-utils/actions/workflows/release.yml/badge.svg
 [release-href]: https://github.com/witchcraftjs/nuxt-utils/actions/workflows/release.yml

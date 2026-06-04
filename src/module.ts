@@ -118,7 +118,12 @@ export default defineNuxtModule<ModuleOptions>({
 
 		addComponent({
 			name: "NuxtUtilsErrorPage",
-			filePath: resolve("runtime/components/error-page.vue"),
+			filePath: resolve("runtime/components/ErrorPage.vue"),
+			global: true
+		})
+		addComponent({
+			name: "NuxtUtilsDevOnly",
+			filePath: resolve("runtime/components/DevOnly.vue"),
 			global: true
 		})
 		nuxt.options.alias["#nuxt-utils"] = resolve("runtime")
