@@ -1,6 +1,6 @@
 {
 	"name": "@witchcraft/nuxt-utils",
-	"version": "0.3.7",
+	"version": "0.3.8",
 	"description": "Nuxt/build utils.",
 	"type": "module",
 	"sideEffects": false,
