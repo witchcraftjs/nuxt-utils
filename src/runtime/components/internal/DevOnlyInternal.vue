@@ -24,9 +24,8 @@
 
 <script lang="ts" setup>
 import { twMerge } from "tailwind-merge"
-import { computed, ref, useAttrs } from "vue"
+import { computed, inject, ref, useAttrs } from "vue"
 
-import { inject } from "../../../../.nuxt/imports.js"
 import { devOnlyHandlerInjectionKey } from "../../types.js"
 
 const $attrs = useAttrs()
