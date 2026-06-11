@@ -38,10 +38,13 @@
 	"dependencies": {
 		"@alanscodelog/utils": "catalog:",
 		"@nuxt/kit": "catalog:",
+		"@standard-schema/spec": "catalog:",
+		"@vueuse/core": "catalog:",
 		"change-case": "catalog:",
 		"defu": "catalog:",
 		"fast-glob": "catalog:",
-		"tailwind-merge": "catalog:"
+		"tailwind-merge": "catalog:",
+		"zod": "catalog:"
 	},
 	"devDependencies": {
 		"@alanscodelog/eslint-config": "catalog:",
