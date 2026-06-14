@@ -134,7 +134,7 @@ export function useAsyncValidation(
 
 	const status = computed<"loading" | "valid" | "invalid" | undefined>(() => {
 		if (isLoading.value) return "loading"
-		if (errors.value.length > 0 || (!isServerValid.value && value.value !== "")) return "invalid"
+		if (value.value !== "" && (errors.value.length > 0 || !isServerValid.value)) return "invalid"
 		if (isServerValid.value) return "valid"
 		return undefined
 	})
