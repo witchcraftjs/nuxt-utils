@@ -1,5 +1,6 @@
 import type { StandardSchemaV1 } from "@standard-schema/spec"
 import { refDebounced } from "@vueuse/core"
+import type { NitroFetchOptions, NitroFetchRequest } from "nitropack"
 import type { Ref } from "vue"
 import { computed, ref } from "vue"
 import { z } from "zod"
@@ -17,7 +18,6 @@ import { useAsyncData } from "#app"
  *
  * Notes:
  * - Remember to gate the button with `v-if` canSubmit.
- * - If wrapping handleSubmit, also remember to check `canSubmit` first. Prefer using modifyFetch if you need to add something to the request.
  * - inputValid is only a visual indicator and is valid for empty inputs and when the server is validating a request. Value might still be invalid.
  * - The typing of res will fail if the route is not a const string.
  *
@@ -36,6 +36,9 @@ import { useAsyncData } from "#app"
  * 			invalid: "Invalid"
  * 		},
  * 		schema: z.string().min(1),
+ * 		getFetchOptions: () => ({
+ * 			body: { ... }
+ * 		})
  * 	}
  * )
  *
@@ -76,7 +79,8 @@ export function useAsyncValidation(
 			invalid: "Invalid"
 		},
 		schema = z.any(),
-		formatErrors = (res: StandardSchemaV1.FailureResult) => res.issues.map(err => err.message.replaceAll("✖", "❌")).join("\n")
+		formatErrors = (res: StandardSchemaV1.FailureResult) => res.issues.map(err => err.message.replaceAll("✖", "❌")).join("\n"),
+		getFetchOptions = () => ({})
 	}: {
 		debounce?: number
 		schema?: StandardSchemaV1<string, string>
@@ -86,6 +90,7 @@ export function useAsyncValidation(
 			valid: string
 			invalid: string
 		}
+		getFetchOptions?: () => NitroFetchOptions<NitroFetchRequest, any>
 	} = {}) {
 	const debouncedValue = refDebounced(value, debounce)
 
@@ -107,7 +112,7 @@ export function useAsyncValidation(
 		asyncDataKey,
 		async () => {
 			if (schemaError.value) return false
-			return $fetch<boolean>(checkRoute)
+			return $fetch<boolean>(checkRoute, getFetchOptions())
 		},
 		{
 			watch: [schemaError, debouncedValue],
