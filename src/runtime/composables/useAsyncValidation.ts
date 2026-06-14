@@ -129,7 +129,7 @@ export function useAsyncValidation(
 	})
 
 	const inputValid = computed(() => {
-		return errors.value.length === 0 && (value.value === "" || requestStatus.value === "pending")
+		return errors.value.length === 0 || value.value === "" || requestStatus.value === "pending"
 	})
 
 	const status = computed<"loading" | "valid" | "invalid" | undefined>(() => {
