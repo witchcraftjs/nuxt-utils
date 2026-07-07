@@ -1,4 +1,4 @@
-import { computed, type ComputedRef } from "vue"
+import { computed, type WritableComputedRef } from "vue"
 
 /**
  * Creates a computed getter/setter to a property on an object that may be replaced.
@@ -18,7 +18,7 @@ import { computed, type ComputedRef } from "vue"
 export function toWritableRef<T extends object, TKey extends keyof T>(
 	getObj: () => T,
 	key: TKey
-): ComputedRef<T[TKey]> {
+): WritableComputedRef<T[TKey]> {
 	return computed<T[TKey]>({
 		get: (): T[TKey] => {
 			const obj = getObj()
