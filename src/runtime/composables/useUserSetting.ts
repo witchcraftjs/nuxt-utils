@@ -14,7 +14,7 @@ const existingStorages = new Map()
 export function useUserSetting(
 	keyPrefix: string,
 	userId: string,
-	defaultValue: any = {},
+	defaultValue?: any,
 	schema?: StandardSchemaV1<Record<string, any>, Record<string, any>>,
 	{
 		debug = false,
