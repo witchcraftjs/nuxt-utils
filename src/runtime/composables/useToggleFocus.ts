@@ -5,8 +5,11 @@ import { nextTick, ref, watchEffect } from "vue"
  * focus moves to the target element. When it flips `false`, focus returns
  * to the same element (useful for returning focus to an edit trigger).
  *
- * Put the returned `class` on the element that should receive focus in both
- * states — typically the edit button/trigger.
+ * Put the returned `class` on the trigger.
+ *
+ * `focusSuffix` is for when the trigger and the focusable are two different elements that can
+ * both be visible at the same time, `class` goes on the trigger and `focusClass` goes on the
+ * focusable, so the two can be told apart.
  *
  * ```ts
  * <script setup lang="ts">
@@ -21,12 +24,12 @@ import { nextTick, ref, watchEffect } from "vue"
  * </template>
  * ```
  */
-export function useToggleFocus(id: string) {
+export function useToggleFocus(id: string, { focusSuffix = "" } = {}) {
 	const editing = ref(false)
 	watchEffect(() => {
 		if (editing.value) {
 			void nextTick(() => {
-				const focusable = document.querySelector(`.focusable-${id}`)
+				const focusable = document.querySelector(`.focusable-${id}${focusSuffix}`)
 				if (focusable && focusable instanceof HTMLElement) {
 					focusable.focus()
 				} else {
@@ -50,6 +53,7 @@ export function useToggleFocus(id: string) {
 	})
 	return {
 		isEditing: editing,
-		class: `focusable-${id}`
+		class: `focusable-${id}`,
+		focusClass: `focusable-${id}${focusSuffix}`
 	}
 }
