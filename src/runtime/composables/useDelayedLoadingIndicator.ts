@@ -3,11 +3,12 @@ import { ref, watch } from "vue"
 /**
  * For async operations sometimes it actually loads so fast the loading indicator is not visible but we still want it to be briefly visible. This delays the setting of the returned ref to false by the given timeout so it at least flashes onscreen.
  *
+ * Can also be used to "flash" attention to something. Just set to true then false on next tick.
+ *
  * Setting to true is not delayed.
  *
  * If the indicator is set to true while the timeout is still running, it's canceled.
  */
-
 export function useDelayedLoadingIndicator(
 	loading: Ref<boolean>,
 	timeout: number = 100
