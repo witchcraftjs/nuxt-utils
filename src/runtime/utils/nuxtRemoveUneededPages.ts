@@ -1,12 +1,14 @@
 import type { Nuxt, NuxtPage } from "nuxt/schema"
 
-/** Remove extraneous unneeded routes from the build, only keep given routes. */
+import { pagePathMatchesRoutePattern } from "./pagePathMatchesRoutePattern.js"
+
+/** Remove extraneous unneeded routes from the build, only keep given routes. {@link pagePathMatchesRoutePattern} decides how they are matched. */
 
 export function nuxtRemoveUneededPages(nuxt: Nuxt, routesToInclude: string[]) {
 	nuxt.hook("pages:extend", (pages: NuxtPage[]) => {
 		const toRemove = []
 		for (const page of pages) {
-			const isWanted = routesToInclude.includes(page.path)
+			const isWanted = routesToInclude.some(route => pagePathMatchesRoutePattern(page.path, route))
 			if (!isWanted) {
 				toRemove.push(page)
 			}
